@@ -2,15 +2,15 @@ import pygame
 from rpigl import glesutils, transforms
 from rpigl.gles2 import *
 
-vertices = [(0.0,0.0,0.0), (0.5,0.0,0.0), (0.5,0.5,0.0), (0.0, 0.5,0.0), 
-            (0.0,0.0,-0.5), (0.5,0.0,-0.5), (0.5,0.5,-0.5), (0.0, 0.5,-0.5)]
+vertices = [(0.0, 0.0, 0.0), (0.5, 0.0, 0.0), (0.5, 0.5, 0.0), (0.0, 0.5, 0.0),
+            (0.0, 0.0, -0.5), (0.5, 0.0, -0.5), (0.5, 0.5, -0.5), (0.0, 0.5, -0.5)]
 
-faces = [{"vertex_index":(0, 1, 2, 0, 3), "normal":(0,0,1), "colour":(1, 0, 0, 1)},
-         {"vertex_index":(4, 5, 6, 4, 7), "normal":(0,0,-1), "colour":(0, 1, 0, 1)},
-         {"vertex_index":(1, 5, 6, 1, 2), "normal":(1,0,0), "colour":(0, 0, 1, 1)},
-         {"vertex_index":(0, 4, 7, 0 ,3), "normal":(-1,0,0), "colour":(1, 0, 1, 1)},
-         {"vertex_index":(3, 2, 6, 3, 7), "normal":(0,1,0), "colour":(1, 1, 0, 1)},
-         {"vertex_index":(0, 1, 5, 0, 4), "normal":(0,-1,0), "colour":(0, 1, 1, 1)}]
+faces = [{"vertex_index": (0, 1, 2, 0, 3), "normal": (0, 0, 1), "colour": (1, 0, 0, 1)},
+         {"vertex_index": (4, 5, 6, 4, 7), "normal": (0, 0, -1), "colour": (0, 1, 0, 1)},
+         {"vertex_index": (1, 5, 6, 1, 2), "normal": (1, 0, 0), "colour": (0, 0, 1, 1)},
+         {"vertex_index": (0, 4, 7, 0, 3), "normal": (-1, 0, 0), "colour": (1, 0, 1, 1)},
+         {"vertex_index": (3, 2, 6, 3, 7), "normal": (0, 1, 0), "colour": (1, 1, 0, 1)},
+         {"vertex_index": (0, 1, 5, 0, 4), "normal": (0, -1, 0), "colour": (0, 1, 1, 1)}]
 
 array_spec = glesutils.ArraySpec("vertex_attrib:3f")
 
@@ -45,9 +45,7 @@ void main(void) {
 """
 
 
-
 class MyWindow(glesutils.GameWindow):
-
     def init(self):
 
         self.angle = 10
@@ -72,30 +70,31 @@ class MyWindow(glesutils.GameWindow):
         for face in faces:
             face["element_buffer"] = glesutils.ElementBuffer(face["vertex_index"])
 
-        self.outer_matrix = transforms.compose(transforms.rotation_degrees(20, "z"), 
-                transforms.rotation_degrees(20, "y"), 
-                transforms.rotation_degrees(20, "x"),
-                transforms.scaling(1.2))
+        self.outer_matrix = transforms.compose(transforms.rotation_degrees(20, "z"),
+                                               transforms.rotation_degrees(20, "y"),
+                                               transforms.rotation_degrees(20, "x"),
+                                               transforms.scaling(1.2))
 
         self.points_matrix = transforms.compose(transforms.stretching(0.1, 1, 1.5),
-                             transforms.translation(-0.5, -0.5, -0.5))
+                                                transforms.translation(-0.5, -0.5, -0.5))
 
     def on_frame(self, time):
-        self.angle = self.angle + time*0.02
+        self.angle = self.angle + time * 0.02
         self.redraw()
 
     def draw(self):
-        self.program1.uniform.light_position.value = (0,0,-1)
+        self.program1.uniform.light_position.value = (0, 0, -1)
         self.program1.uniform.ambient_light.value = 0.3
-   
-        rotation_matrix = transforms.compose(transforms.rotation_degrees(self.angle, "z"), 
-                transforms.rotation_degrees(self.angle, "y"),
-                transforms.compose(transforms.rotation_degrees(self.angle, "x")))
+
+        rotation_matrix = transforms.compose(transforms.rotation_degrees(self.angle, "z"),
+                                             transforms.rotation_degrees(self.angle, "y"),
+                                             transforms.compose(transforms.rotation_degrees(self.angle, "x")))
         self.program1.uniform.transform_matrix.value = rotation_matrix
 
         for face in faces:
             self.program1.uniform.color.value = face["colour"]
             self.program1.uniform.face_normal.value = face["normal"]
             self.verteces_buffer.draw(elements=face["element_buffer"], mode=GL_TRIANGLE_STRIP)
+
 
 MyWindow(200, 200, pygame.RESIZABLE).run()
