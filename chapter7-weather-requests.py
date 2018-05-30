@@ -1,6 +1,9 @@
 import requests
 import json
 
+# Chinese Edition
+# Using requests and json library
+
 API = "https://api.seniverse.com/v3/weather/now.json"
 KEY = "jcpe3hhnjnnvml7t"
 LANGUAGE = "zh-Hans"
