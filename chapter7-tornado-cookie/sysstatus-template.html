@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Status Checker</title>
+</head>
+<body>
+<h1>System Status Checker</h1>
+<a href="sysstatus?type=processes">Processes</a>
+<a href="sysstatus?type=system">System</a>
+<a href="sysstatus?type=syslog">System Log</a>
+<a href="sysstatus?type=storage">Storage</a>
+<a href="sysstatus?type=network">Network</a>
+<a href="sysstatus?type=all">Display all</a>
+
+{% import subprocess %}
+{% for command in commands %}
+
+<!--define how to use function in tornado template-->
+<h2>Command: {{join(command)}}</h2>
+<h2>Output: </h2>
+<!--pre tag for display code with space and new line reserved-->
+<pre>
+    {% for line in subprocess.check_output(command).splitlines() %}
+    {{line}}
+    {% end %}}
+</pre>
+{% end %}
+
+</body>
+</html>
