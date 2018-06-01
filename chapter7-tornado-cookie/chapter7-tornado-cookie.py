@@ -47,6 +47,7 @@ class LogoutHandler(tornado.web.RequestHandler):
         self.clear_cookie("user")
         self.render("logout-template.html")
 
+
 # define a function and pass its name to SysStatusHandler as argument
 def join_all(lst):
     return ' '.join(lst)
