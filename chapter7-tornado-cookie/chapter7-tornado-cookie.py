@@ -1,7 +1,7 @@
 import tornado.ioloop
 import tornado.web
 
-users = {"sennhvi": "wangsh92"}
+users = {"sennhvi": "123456"}
 
 
 class SysStatusHandler(tornado.web.RequestHandler):
