@@ -40,7 +40,7 @@
 ├── chapter9-mirror.py
 ├── chapter9-object-detect.py
 ├── chapter9-pyri.py
-├── chapter9-record.py
+├── chapter9-record.py                  # pyaudio, wave module for record audio and save
 ├── chapter9-timelapse.py
 ├── chapter10-backup.py
 ├── chapter10-regex.py
