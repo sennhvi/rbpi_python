@@ -22,4 +22,4 @@ for i in range(1, 50):
     display.blit(inverse, (0, 0))
     pygame.display.flip()
 
-pygame.image.save(inverse, "/home/pi/test.png")
+pygame.image.save(inverse, "/home/sennhvi/test.png")

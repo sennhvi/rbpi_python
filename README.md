@@ -36,10 +36,10 @@
 ├── chapter7-weather-urllib.py          # urllib.requests, urllib.parse, json, ssl usage example
 ├── chapter9-live-take-pics.py
 ├── chapter9-live-take-pics-server.py
-├── chapter9-mirror-lines.py
-├── chapter9-mirror.py
+├── chapter9-mirror-lines.py            # laplace transform
+├── chapter9-mirror.py                  # update camera image in pygame window
 ├── chapter9-object-detect.py
-├── chapter9-pyri.py
+├── chapter9-pyri.py                    # record audio, speak to text, search for text, I don't give a fuck
 ├── chapter9-record.py                  # pyaudio, wave module for record audio and save
 ├── chapter9-timelapse.py
 ├── chapter10-backup.py
