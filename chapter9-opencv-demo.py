@@ -1,5 +1,6 @@
 import cv2
 
+# https://docs.opencv.org/2.4/doc/user_guide/ug_traincascade.html
 capture = cv2.VideoCapture(0)
 
 while True:
