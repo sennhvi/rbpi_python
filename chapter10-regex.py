@@ -2,6 +2,8 @@ import subprocess
 from optparse import OptionParser
 import re
 
+# Usage:
+# python3 chapter10-regex.py -f filename -r regex_str
 parser = OptionParser()
 
 parser.add_option("-f", "--file", dest="filename",
