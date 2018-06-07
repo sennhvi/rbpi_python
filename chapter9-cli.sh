@@ -4,4 +4,5 @@ libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libportmi
 mercurial python3-dev libsdl2-dev libopencv-core-dev libatlas-base-dev libjasper-dev libav-tools -y
 sudo pip3 install pyaudio
 sudo pip3 install opencv-python
+sudo pip3 install tornado
 

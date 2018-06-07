@@ -10,6 +10,7 @@ class MainHandler(tornado.web.RequestHandler):
                          "-e", "jpg", "-n", "-t", "1", "-o",
                          "/home/sennhvi/python/images/live.jpg"])
         time.sleep(2)
+        # <META> tag specifies refresh interval as 5s
         self.write('<! DOCTYPE html><head>' +
                    '<META HTTP-EQUIV="refresh"' +
                    ' CONTENT="5"></head><body>' +
@@ -18,6 +19,7 @@ class MainHandler(tornado.web.RequestHandler):
 
 class ImageHandler(tornado.web.StaticFileHandler):
     def set_extra_headers(self, path):
+        # tell tornado no to use cache and release used image reread file
         self.set_header('Cache-Control',
                         'no-store, no-cache, must-revalidate,' +
                         ' max-age=0')
