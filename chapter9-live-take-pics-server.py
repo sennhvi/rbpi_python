@@ -5,8 +5,9 @@ import subprocess
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write(
-            '<! DOCTYPE html><head><META HTTP-EQUIV="refresh" CONTENT="5"></head><body><img src="/images/live.jpg"></body>')
+        self.write('<! DOCTYPE html>'
+                   '<head><META HTTP-EQUIV="refresh" CONTENT="5"></head>'
+                   '<body><img src="/images/live.jpg"></body>')
 
 
 class ImageHandler(tornado.web.StaticFileHandler):
@@ -19,6 +20,6 @@ application = tornado.web.Application([
     (r"/images/(.*)", ImageHandler, {"path": "/home/sennhvi/python/images"})])
 
 if __name__ == "__main__":
-    subprocess.Popen(["python3", "live-take-pics.py"])
+    subprocess.Popen(["python3", "chapter9-live-take-pics.py"])
     application.listen(8888)
     tornado.ioloop.IOLoop.instance().start()
