@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(22, GPIO.OUT)  # signal output port
 GPIO.setup(4, GPIO.IN)  # signal input port
 
-GPIO.output(22, False) # set default state
+GPIO.output(22, False)  # set default state
 random.seed()
 
 while True:
