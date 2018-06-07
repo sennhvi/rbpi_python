@@ -7,6 +7,7 @@ factor_up = 3
 
 capture = cv2.VideoCapture(0)
 
+# place your opencv training file here
 eye_data = cv2.CascadeClassifier('/usr/share/opencv/haarcascades/haarcascade_eye.xml')
 smile_data = cv2.CascadeClassifier('/usr/share/opencv/haarcascades/haarcascade_mcs_mouth.xml')
 
