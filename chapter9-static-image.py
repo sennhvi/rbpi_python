@@ -8,7 +8,7 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         subprocess.call(["raspistill", "-w", "200", "-h", "200",
                          "-e", "jpg", "-n", "-t", "l", "-o",
-                         "/home/sennhvi/python/images"])
+                         "/home/sennhvi/python/images/live.jpg"])
         time.sleep(2)
         self.write('<! DOCTYPE html><head>' +
                    '<META HTTP-EQUIV="refresh"' +
