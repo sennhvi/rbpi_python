@@ -13,6 +13,10 @@ import re
 # 2. scp id_rsa.pub to server directory ~/.ssh/, rename it as authorized_keys if no authorized_keys file exists,
 # otherwise append id_rsa.pub content to authorized_keys
 
+
+# Usage:
+# python3 chapter10-backup.py -f backup.tar.gz -p /home/sennhvi -s sennhvi@192.168.0.5:/home/sennhvi/backups/
+
 parser = OptionParser()
 
 parser.add_option("-f", "--file", dest="filename",
